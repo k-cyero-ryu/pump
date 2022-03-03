@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Pump Controller</title>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script language="javascript" src="serverDate.js"></script>
+<script language="javascript">
+
+function setText(id,newvalue) {
+  var s= document.getElementById(id);
+  s.innerHTML = newvalue;
+}    
+
+function getServerTime() {
+  return $.ajax({async: false}).getResponseHeader( 'Date' );
+}
+console.log('Server Time: ', getServerTime());
+console.log('Locale Time: ', new Date(getServerTime()));
+
+window.onload=function() { 
+  setText("date1", date);
+}
+
+</script>
+<body>
+<div id="wrapper">
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+				<div id="content">
+					<div class="post">
+						<h2 class="title"><a href="#">Pump Controller </a></h2>	
+						<div class="entry" style="margin: auto; text-align:center">
+							<br> 
+							<br>							
+							<p><strong>Turn on or off the pump, remember to check how mwany times more you are able to do this.</strong></p>
+							<br> 
+							<br>							
+							<input type="submit" class="button" name="on_off" value="On / Off" style="height: 50px; width: 150px; font-size : 20px;"/>
+							<p class="links"><a href="#">just in case?</a></p>
+							<br> 
+							<br>
+						</div>
+					</div>					
+				</div>
+				<!-- end #content -->
+				<div id="sidebar">
+					<div id="logo">
+						<h1><a href="#">Logo </a></h1>
+					</div>
+					<div id="menu">
+						<ul>						
+							<li>
+							<h2>Some text thing</h2>
+							<p>The rest of the text more explicit</p>
+							</li>						
+						</ul>
+						<ul>
+							<li ><h2>Date </h2></li>
+							<li><p id="date1">date</p></li>
+							
+						</ul>					
+						<ul>						
+							<li>
+							<h2>Pump Status</h2>
+							<p id="pump_status">working?</p>
+							</li>						
+						</ul>
+						<ul>						
+							<li>
+							<h2>Some text thing</h2>
+							<p>The rest of the text more explicit</p>
+							</li>						
+						</ul>						
+					</div>
+				</div>
+				<!-- end #sidebar -->
+			</div>
+		</div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p>All rights reserved. Design by <a href="https://k-cyero-ryu.github.io/orenojinsei/">K-Cyero Ryu</a>.</p>
+</div>
+<!-- end #footer -->
+</html>
